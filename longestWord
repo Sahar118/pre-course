@@ -1,0 +1,15 @@
+const longestWord = (sentence)=>{ 
+    var splitSentence=sentence.split(" ");
+    var longestWord=0;
+    var longestWordStr='';
+    for  (var x=0; x<splitSentence.length; x++)
+    {
+        if(splitSentence[x].replace(/\d+|^\s+|\s+$/g,'').length>longestWord){
+            longestWord=splitSentence[x].replace(/\d+|^\s+|\s+$/g,'').length;
+            longestWordStr=splitSentence[x].replace(/\d+|^\s+|\s+$/g,'');
+        }
+        
+    }
+        return longestWordStr;
+
+    }
