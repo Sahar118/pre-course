@@ -1,0 +1,9 @@
+const numFactorial = (num)=>{ 
+    let factorial=1;
+    for(var x=1;x<=num;x++){
+        factorial*=x;
+    }
+    return factorial;
+
+
+}
