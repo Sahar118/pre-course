@@ -1,0 +1,8 @@
+const sumArray = (arr)=>{
+    let sum=0;
+    for(let x=0;x<arr.length;x++){
+        sum=sum+arr[x];
+
+    }
+    return sum;
+ }
