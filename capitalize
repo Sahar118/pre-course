@@ -1,0 +1,14 @@
+const capitalize = (word)=>{
+  
+  let capitalizeVowels= ["a","e","i","o","u","y"];
+  let splittedWord=word.split("");
+  for(let x=0;x<splittedWord.length;x++){
+    for(let y=0;y<capitalizeVowels.length;y++){
+     if(splittedWord[x]===capitalizeVowels[y]){
+       splittedWord[x]=splittedWord[x].toUpperCase();
+     } 
+    }
+  }
+  word=splittedWord.join('');
+  return word;
+}
