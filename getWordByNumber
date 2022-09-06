@@ -1,0 +1,10 @@
+const getWordByNumber = (num)=>
+{
+    let numbersNames=["zero","one","two", "three", "four","five","six","seven", "eight", "nine"];
+    if(num>9 || num<0 || !Number.isFinite(num)){
+        return "invalid";
+    }
+    else{
+        return numbersNames[num];
+    }
+}
