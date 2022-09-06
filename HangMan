@@ -1,0 +1,115 @@
+let prompt = require("prompt-sync")();
+let figlet= require('figlet');
+let isWrongGuess=0;
+let guesses=0;
+async function intro() {
+await figlet('Hang Man',function(err,data){
+    if(err){
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    console.log(data) });
+}
+
+intro();
+console.log("You have 10 guesses\nThe word is?\n");
+
+ //create an array of words
+
+var words = [
+ "HomeWork",
+ "car",
+ "Brazil"
+ ];
+var guess=null;
+        
+ // Pick a random word
+ var word = words[Math.floor(Math.random() * words.length)];
+ var LowerCaseWord=word.toLowerCase();
+
+ // Set up the answer array
+ var answerArray = [];
+ for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "*";
+ }
+
+var remainingLetters = word.length;
+var maxAttempts = 10;
+
+ // The game loop
+while ((remainingLetters > 0) && (maxAttempts <=10 && maxAttempts>0)){
+ 
+    // Show the player their progress
+    console.log(answerArray.join('')+"\n");
+
+ function ciEquals(a, b) {
+    return typeof a === 'string' && typeof b === 'string'
+        ? a.localeCompare(b, undefined, { sensitivity: 'accent' }) === 0
+        : a === b;   
+    }
+
+ // Game code goes here
+ // Show the player their progress
+ // Take input from the player
+ // Update answerArray and remainingLetters for every correct guess
+
+  //Get a guess from the player
+  guess = prompt ('What is your guess?');
+  //readline.question('What is your guess?\n',guess);
+    if (guess === null) {
+ // Exit the game loop
+       console.log("You did not enter a letter\n");
+       break;
+    } 
+ 
+    else if (guess.length !== 1) {
+        console.log("Please enter a single letter.\n");
+        continue;
+    }
+ 
+    else if (!guess.match("^[a-zA-Z]+$")) {
+        console.log("the guess is invalid\n");
+        continue; 
+    }
+    
+    if(LowerCaseWord.includes(guess.toLowerCase())){
+        isWrongGuess=0;
+    }
+    else{
+        isWrongGuess=1;
+    }
+    if(isWrongGuess) {
+        maxAttempts--;
+        console.log("You have " + maxAttempts + " more lives");
+        continue;
+    }
+    if(maxAttempts === 0) {
+        console.log("No more lives, The game is over");
+            
+        break;
+    }       
+    if(!isWrongGuess){
+        guesses++;
+    // Update the game state with the guess
+        for (var j = 0; j < word.length; j++) {
+            if (LowerCaseWord[j] === guess) {
+                answerArray[j] = guess;
+                remainingLetters--;
+            }
+            
+        }
+        maxAttempts--;
+    }
+}
+        // The end of the game loop
+ 
+if(guess===word.length){        // Show the answer and congratulate the player
+    console.log(answerArray.join(" "));{
+            console.log("Good job! The answer was " + word);
+    }
+}
+else{
+    console.log("Nice try, you guessed "+guesses+".\nthe answer was "+word);
+}
+     
