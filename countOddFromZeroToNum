@@ -1,0 +1,7 @@
+const countOddFromZeroToNum = (num)=>{ 
+
+     if (num%2 ==0 )
+        return num/2;
+     else
+        return Math.floor(num/2)+1
+    }
