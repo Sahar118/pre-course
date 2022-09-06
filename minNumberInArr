@@ -1,0 +1,16 @@
+const minNumberInArr=(arr) =>{
+  
+  var x=0
+  
+  let minNumber = arr[0];
+  
+  for (x=0; x<arr.length; x++) {
+
+     if(minNumber>arr[x]){
+      minNumber=arr[x];
+}
+}
+return minNumber;
+}
+ 
+ 
