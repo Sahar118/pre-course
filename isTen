@@ -1,0 +1,9 @@
+const isTen = (a,b)=>{ 
+
+let addition =a+b;
+let additionAssignment=10;
+if(addition>=additionAssignment)
+    return 'makes 10';
+return 'nope';
+
+}
