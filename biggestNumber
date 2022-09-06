@@ -1,0 +1,10 @@
+const biggestNumber = (a,b,c)=>{
+    let maxNum=0;
+    if(a>b &&a>c)
+        maxNum=a;
+    if(b>a &&b>c)
+        maxNum=b;
+    if(c>a &&c>b)
+        maxNum=c;
+    return maxNum;
+ }
